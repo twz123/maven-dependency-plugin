@@ -104,6 +104,8 @@ public class GoOfflineMojo
         final ProjectBuildingRequest buildingRequest =
                 new DefaultProjectBuildingRequest( session.getProjectBuildingRequest() );
 
+        buildingRequest.setRemoteRepositories( getProject().getRemoteArtifactRepositories() );
+
         for ( Dependency dependency : dependencies )
         {
             dependableCoordinates.add( createDependendableCoordinateFromDependency( dependency ) );
@@ -166,6 +168,8 @@ public class GoOfflineMojo
 
         final ProjectBuildingRequest buildingRequest =
                 new DefaultProjectBuildingRequest( session.getProjectBuildingRequest() );
+
+        buildingRequest.setPluginArtifactRepositories( getProject().getPluginArtifactRepositories() );
 
         for ( Artifact artifact : artifacts )
         {
